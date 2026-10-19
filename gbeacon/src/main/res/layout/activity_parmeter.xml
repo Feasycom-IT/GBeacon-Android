@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/header"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.glowbird.gbeacon.ui.view.LabelEditView
+                android:id="@+id/module_label_edit"
+                style="@style/Label_Edit"
+                app:labelText="@string/module"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/view"
+                style="@style/divider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/module_label_edit" />
+
+            <com.glowbird.gbeacon.ui.view.LabelEditView
+                android:id="@+id/version_label_edit"
+                style="@style/Label_Edit"
+                app:labelText="@string/parameter_version"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view" />
+
+            <View
+                android:id="@+id/view2"
+                style="@style/divider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/version_label_edit" />
+
+            <com.glowbird.gbeacon.ui.view.LabelEditView
+                android:id="@+id/name_label_edit"
+                style="@style/Label_Edit"
+                app:labelText="@string/parameter_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+            <View
+                android:id="@+id/view3"
+                style="@style/divider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/name_label_edit" />
+
+            <com.glowbird.gbeacon.ui.view.IntervalEditView
+                android:id="@+id/interval_label_edit"
+                style="@style/Label_Edit"
+                app:labelText="@string/parameter_interval"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view3" />
+
+            <View
+                android:id="@+id/interval_divider"
+                style="@style/divider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/interval_label_edit" />
+
+            <com.glowbird.gbeacon.ui.view.LabelButtonView
+                android:id="@+id/long_range_label_button"
+                style="@style/Label_Edit"
+                app:labelText="Longrange 125kbps: "
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/interval_divider" />
+
+            <View
+                android:id="@+id/long_range_divider"
+                style="@style/divider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/long_range_label_button" />
+
+            <com.glowbird.gbeacon.ui.view.LabelEditView
+                android:id="@+id/pin_label_edit"
+                style="@style/Label_Edit"
+                app:labelText="Pin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/long_range_divider" />
+
+            <View
+                android:id="@+id/view5"
+                style="@style/divider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pin_label_edit" />
+
+            <com.glowbird.gbeacon.ui.view.LabelSpinnerView
+                android:id="@+id/tx_power_label_spinner"
+                style="@style/Label_Edit"
+                app:labelText="TxPower(dB): "
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view5" />
+
+            <View
+                android:id="@+id/view6"
+                style="@style/divider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tx_power_label_spinner" />
+
+            <com.glowbird.gbeacon.ui.view.GsensorEditView
+                android:id="@+id/gsensor_edit"
+                style="@style/Label_Edit"
+                app:labelText="Gsensor(ms): "
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view6" />
+
+            <View
+                android:id="@+id/gsensor_divider"
+                style="@style/divider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/gsensor_edit" />
+
+            <com.glowbird.gbeacon.ui.view.KeycfgEditView
+                android:id="@+id/keycfg_edit"
+                style="@style/Label_Edit"
+                app:labelText="Key(ms): "
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/gsensor_divider" />
+
+            <View
+                android:id="@+id/keycfg_divider"
+                style="@style/divider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/keycfg_edit" />
+
+            <com.glowbird.gbeacon.ui.view.LabelButtonView
+                android:id="@+id/tlm_label_button"
+                style="@style/Label_Edit"
+                app:labelText="TLM: "
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/keycfg_divider" />
+
+            <View
+                android:id="@+id/tlm_divider"
+                style="@style/divider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tlm_label_button" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/parameter_listview"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tlm_divider" />
+
+            <Button
+                android:id="@+id/ota_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="50dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/title_left_right"
+                android:text="@string/ota_update"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/add_button" />
+
+            <Button
+                android:id="@+id/batch_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="50dp"
+                android:background="@color/title_left_right"
+                android:text="@string/configure_device"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ota_button" />
+
+            <Button
+                android:id="@+id/resetting_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="50dp"
+                android:background="@color/title_left_right"
+                android:text="@string/resetting_device"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/batch_button" />
+
+            <Button
+                android:id="@+id/at_command_debugging_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="50dp"
+                android:background="@color/title_left_right"
+                android:text="@string/at_command_debugging"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/resetting_button" />
+
+            <Button
+                android:id="@+id/add_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/title_left_right"
+                android:padding="10dp"
+                android:text="Add beacon +"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/parameter_listview" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/tlm_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:constraint_referenced_ids="tlm_label_button,tlm_divider" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/long_rand_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:constraint_referenced_ids="long_range_label_button,long_range_divider" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/gsensor_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:constraint_referenced_ids="gsensor_edit,gsensor_divider" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/key_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:constraint_referenced_ids="keycfg_edit,keycfg_divider" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

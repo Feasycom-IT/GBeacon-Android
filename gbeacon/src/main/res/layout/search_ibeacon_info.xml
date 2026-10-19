@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/BeaconInfo_TV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="iBeacon" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/BeaconInfo_TV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Company: Apple, Inc.  " />
+
+            <TextView
+                android:id="@+id/tv_ibeacon_company"
+                style="@style/BeaconInfo_TV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="unknow" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/BeaconInfo_TV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Type: Beacon " />
+
+            <TextView
+                android:id="@+id/tv_ibeacon_type"
+                style="@style/BeaconInfo_TV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="unknow" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/BeaconInfo_TV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Length: " />
+
+            <TextView
+                android:id="@+id/tv_ibeacon_length"
+                style="@style/BeaconInfo_TV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="unknow" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/BeaconInfo_TV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="UUID: " />
+
+            <TextView
+                android:id="@+id/tv_ibeacon_uuid"
+                style="@style/BeaconInfo_TV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="unknow" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/BeaconInfo_TV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Major: " />
+
+            <TextView
+                android:id="@+id/tv_ibeacon_major"
+                style="@style/BeaconInfo_TV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="unknow" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/BeaconInfo_TV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Minor: " />
+
+            <TextView
+                android:id="@+id/tv_ibeacon_minor"
+                style="@style/BeaconInfo_TV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="unknow" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/BeaconInfo_TV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="RSSI at 1m: " />
+
+            <TextView
+                android:id="@+id/tv_ibeacon_rssi"
+                style="@style/BeaconInfo_TV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="unknow" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</merge>

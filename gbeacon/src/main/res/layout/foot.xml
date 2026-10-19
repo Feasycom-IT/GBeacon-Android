@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent">
+
+    <View
+        android:id="@+id/divider12"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider" />
+
+    <RadioGroup
+        android:id="@+id/navigation_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/beacon_nav"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:checked="true"
+            android:drawableTop="@drawable/select_navigation_beacon"
+            android:gravity="center"
+            android:text="@string/beacon"
+            android:textColor="@drawable/navigation_bar_color" />
+
+        <RadioButton
+            android:id="@+id/sensor_nav"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/select_navigation_sensor"
+            android:gravity="center"
+            android:text="@string/sensor"
+            android:textColor="@drawable/navigation_bar_color" />
+
+        <RadioButton
+            android:id="@+id/setting_nav"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/select_navigation_setting"
+            android:gravity="center"
+            android:text="@string/setting"
+            android:textColor="@drawable/navigation_bar_color" />
+
+        <RadioButton
+            android:id="@+id/store_nav"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/select_navigation_store"
+            android:gravity="center"
+            android:text="@string/store"
+            android:textColor="@drawable/navigation_bar_color"
+            android:visibility="gone" />
+
+        <RadioButton
+            android:id="@+id/forum_nav"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/select_navigation_forum"
+            android:gravity="center"
+            android:text="@string/forum"
+            android:textColor="@drawable/navigation_bar_color" />
+
+        <RadioButton
+            android:id="@+id/about_nav"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/select_navigation_about"
+            android:gravity="center"
+            android:text="@string/about"
+            android:textColor="@drawable/navigation_bar_color" />
+
+    </RadioGroup>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_above="@id/navigation_bar"
+        android:layout_marginBottom="10dp"
+        android:background="#f5f5f5" />
+
+</RelativeLayout>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_home"
+    app:startDestination="@id/beaconFragment">
+
+    <fragment
+        android:id="@+id/beaconFragment"
+        android:name="com.glowbird.gbeacon.ui.beacon.BeaconFragment"
+        android:label="BeaconFragment" />
+
+    <fragment
+        android:id="@+id/sensorFragment"
+        android:name="com.glowbird.gbeacon.ui.sensor.SensorFragment"
+        android:label="SensorFragment" />
+
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.glowbird.gbeacon.ui.setting.SettingFragment"
+        android:label="SettingFragment" />
+
+    <fragment
+        android:id="@+id/OTAFragment"
+        android:name="com.glowbird.gbeacon.ui.ota.OtaActivity"
+        android:label="OTAFragment" />
+
+    <fragment
+        android:id="@+id/storeFragment"
+        android:name="com.glowbird.gbeacon.ui.store.StoreFragment"
+        android:label="StoreFragment" />
+
+    <fragment
+        android:id="@+id/forumFragment"
+        android:name="com.glowbird.gbeacon.ui.forum.ForumFragment"
+        android:label="ForumFragment" />
+
+    <include app:graph="@navigation/about_nav" />
+
+    <!-- 启动页 / 广告页 Fragment（供 SplashFragment、AdFragment 里的 nav action 使用） -->
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.glowbird.gbeacon.ui.splash.SplashFragment"
+        android:label="SplashFragment">
+        <action
+            android:id="@+id/action_splashFragment_to_adFragment"
+            app:destination="@id/adFragment" />
+        <action
+            android:id="@+id/action_splashFragment_to_beaconFragment"
+            app:destination="@id/beaconFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/adFragment"
+        android:name="com.glowbird.gbeacon.ui.ad.AdFragment"
+        android:label="AdFragment">
+        <action
+            android:id="@+id/action_adFragment_to_beaconFragment"
+            app:destination="@id/beaconFragment" />
+    </fragment>
+
+</navigation>

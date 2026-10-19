@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Beacon 表格列的名称数组 -->
+    <string-array name="beacon_table">
+        <!-- 空白项 -->
+        <item> </item>
+        <!-- UID 列 -->
+        <item>UID</item>
+        <!-- URL 列 -->
+        <item>URL</item>
+        <!-- iBeacon 列 -->
+        <item>iBeacon</item>
+        <!-- AltBeacon 列 -->
+        <item>AltBeacon</item>
+    </string-array>
+</resources>

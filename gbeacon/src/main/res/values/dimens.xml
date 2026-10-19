@@ -1,0 +1,4 @@
+<resources>
+    <!-- 默认屏幕边距，遵循 Android 设计准则。 -->
+    <dimen name="divide_height">0.5dp</dimen>
+</resources>

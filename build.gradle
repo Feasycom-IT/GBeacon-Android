@@ -1,0 +1,55 @@
+// 顶层构建文件，可在此处添加所有子项目/模块的通用配置选项。
+buildscript {
+    repositories {
+        maven { url = uri("https://maven.aliyun.com/repository/public") }
+        maven { url = uri("https://maven.aliyun.com/repository/google") }
+        maven { url = uri("https://maven.aliyun.com/repository/central") }
+        maven { url = uri("https://maven.aliyun.com/repository/gradle-plugin") }
+        maven { url = uri("https://jitpack.io") } // 修复语法错误：url 'xxx' → url = uri("xxx")
+        mavenCentral()
+        google()
+    }
+    dependencies {
+        // 导航插件版本与 Gradle 插件版本匹配（8.13.0 建议用 2.7+ 版本）
+        classpath 'androidx.navigation:navigation-safe-args-gradle-plugin:2.7.7'
+        // 保持 8.13.0 版本（需 JDK 17 支持）
+        classpath 'com.android.tools.build:gradle:8.13.2'
+        // Kotlin 版本与 Gradle 8.13.0 匹配（建议升级到 1.9.0+）
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.20"
+    }
+}
+
+allprojects {
+    repositories {
+        maven { url = uri("https://maven.aliyun.com/repository/public") }
+        maven { url = uri("https://maven.aliyun.com/repository/google") }
+        maven { url = uri("https://maven.aliyun.com/repository/central") }
+        maven { url = uri("https://maven.aliyun.com/repository/gradle-plugin") }
+        maven { url = uri("https://jitpack.io") } // 修复语法错误
+        google()
+        mavenCentral()
+    }
+}
+
+// 清理任务
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+// 扩展属性
+ext {
+    room_version = "2.4.2"
+
+    retrofit_version = "2.9.0"
+
+    lifecycle_extensions_version = "2.2.0"
+    lifecycle_viewmodel_version = "2.4.1"
+    lifecycle_livedata_version = "2.5.0-alpha05"
+
+    glide_version = "4.12.0"
+}
+
+configurations.all {
+    resolutionStrategy {
+        force "org.jetbrains.kotlin:kotlin-stdlib-common:1.5.0"
+    }}

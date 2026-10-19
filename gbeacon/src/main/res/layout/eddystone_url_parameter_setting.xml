@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/title_background"
+        android:orientation="vertical">
+
+        <LinearLayout style="@style/iBeaconEditLL">
+
+            <TextView
+                android:id="@+id/eddystone_urlLabel"
+                style="@style/setting_parameter_left_text"
+                android:text="URL: " />
+
+            <EditText
+                android:id="@+id/eddystone_url"
+                style="@style/iBeaconEdit"
+                android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ:/." />
+
+        </LinearLayout>
+
+        <LinearLayout style="@style/iBeaconEditLL">
+
+            <TextView
+                android:id="@+id/eddystone_rssi_label"
+                style="@style/setting_parameter_left_text"
+                android:text="RSSI at 0m: " />
+
+            <EditText
+                android:id="@+id/eddystone_rssi"
+                style="@style/iBeaconEdit"
+                android:digits="0123456789-" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/url_interval_ll"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@color/title_background"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/url_interval_label"
+                style="@style/setting_parameter_left_text"
+                android:text="间隔(ms): " />
+
+            <EditText
+                android:id="@+id/url_interval"
+                style="@style/iBeaconEdit"
+                android:digits="0123456789" />
+
+        </LinearLayout>
+
+        <com.glowbird.gbeacon.ui.view.LabelSpinnerView
+            android:id="@+id/tx_power_label_spinner"
+            style="@style/Label_Edit"
+            android:background="@color/title_background"
+            android:visibility="gone"
+            app:labelText="TxPower(dB): " />
+
+        <com.glowbird.gbeacon.ui.view.LabelSpinnerView
+            android:id="@+id/phy_label_spinner"
+            style="@style/Label_Edit"
+            android:background="@color/title_background"
+            android:visibility="gone"
+            app:labelText="Phy: " />
+
+        <LinearLayout style="@style/iBeaconEditLL">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="Enable:"
+                android:textColor="@color/about_title"
+                android:textSize="14sp" />
+
+            <com.glowbird.gbeacon.ui.view.SwitchButton
+                android:id="@+id/beacon_enable"
+                android:layout_width="54dp"
+                android:layout_height="30dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</merge>

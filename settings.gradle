@@ -1,0 +1,3 @@
+rootProject.name = "GBeacon"
+// 只包含应用层；GBeaconLib 以 AAR 形式引入（gbeacon/libs/GBeaconLib-release.aar）
+include ':gbeacon'

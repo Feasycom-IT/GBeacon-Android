@@ -1,0 +1,31 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.glowbird.gbeacon.ui.view.iBeaconView
+        android:id="@+id/setting_parameter_ibeacon"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
+
+    <com.glowbird.gbeacon.ui.view.Eddystone_UIDView
+        android:id="@+id/setting_parameter_eddystone_uid"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
+    <com.glowbird.gbeacon.ui.view.Eddystone_URLView
+        android:id="@+id/setting_parameter_eddystone_url"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
+    <com.glowbird.gbeacon.ui.view.AltBeaconView
+        android:id="@+id/setting_parameter_altbeacon"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
+</LinearLayout>

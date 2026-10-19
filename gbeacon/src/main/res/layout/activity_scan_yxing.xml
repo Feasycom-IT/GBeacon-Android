@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    yxing 扫码界面（ui/utils/yxing/ScanCodeActivity）使用的布局。
+    注意：文件名不能叫 activity_scan_code.xml —— 它和 activity_scancode.xml 生成的绑定类名
+    ActivityScancodeBinding / ActivityScanCodeBinding 只差大小写，在 Windows 上会互相覆盖。
+
+    这里必须保留：
+      * 根布局 id = rlparent，且必须是 RelativeLayout（代码里用 RelativeLayout.LayoutParams 动态添加扫描框/提示层）
+      * PreviewView id = pvCamera（CameraX 预览）
+-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rlparent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black">
+
+    <!-- 放在最前面：代码会把扫描框 addView(..., 1) 插到预览之上、标题栏之下 -->
+    <androidx.camera.view.PreviewView
+        android:id="@+id/pvCamera"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
+
+</RelativeLayout>

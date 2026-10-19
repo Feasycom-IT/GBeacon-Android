@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/header"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/module_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/module"
+                app:layout_constraintBottom_toTopOf="@+id/view"
+                app:layout_constraintStart_toStartOf="@+id/version_label"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/module_edit"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@null"
+                android:gravity="end|center"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toTopOf="@+id/view"
+                app:layout_constraintEnd_toStartOf="@+id/guideline8"
+                app:layout_constraintStart_toEndOf="@+id/module_label"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/view"
+                style="@style/batch_config_divider"
+                android:layout_marginTop="40dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/version_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/parameter_version"
+                app:layout_constraintBottom_toTopOf="@+id/view2"
+                app:layout_constraintStart_toEndOf="@+id/name_check_box"
+                app:layout_constraintTop_toBottomOf="@+id/view" />
+
+            <EditText
+                android:id="@+id/version_start"
+                style="@style/batch_config_edit"
+                android:layout_marginEnd="10dp"
+                android:inputType="number"
+                app:layout_constraintBottom_toTopOf="@+id/view2"
+                app:layout_constraintEnd_toStartOf="@+id/textView10"
+                app:layout_constraintTop_toBottomOf="@+id/view" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:text="~"
+                app:layout_constraintBottom_toTopOf="@+id/view2"
+                app:layout_constraintEnd_toStartOf="@+id/version_end"
+                app:layout_constraintTop_toBottomOf="@+id/view" />
+
+            <EditText
+                android:id="@+id/version_end"
+                style="@style/batch_config_edit"
+                android:inputType="number"
+                app:layout_constraintBottom_toTopOf="@+id/view2"
+                app:layout_constraintEnd_toStartOf="@+id/guideline8"
+                app:layout_constraintTop_toBottomOf="@+id/view" />
+
+            <View
+                android:id="@+id/view2"
+                style="@style/batch_config_divider"
+                android:layout_marginTop="40dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view" />
+
+            <CheckBox
+                android:id="@+id/name_check_box"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/view3"
+                app:layout_constraintStart_toStartOf="@+id/guideline17"
+                app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+            <TextView
+                android:id="@+id/name_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/device_name"
+                app:layout_constraintBottom_toTopOf="@+id/view3"
+                app:layout_constraintStart_toEndOf="@+id/name_check_box"
+                app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+            <EditText
+                android:id="@+id/name_edit"
+                style="@style/batch_config_edit"
+                android:layout_width="100dp"
+                app:layout_constraintBottom_toTopOf="@+id/view3"
+                app:layout_constraintEnd_toStartOf="@+id/guideline8"
+                app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+            <View
+                android:id="@+id/view3"
+                style="@style/batch_config_divider"
+                android:layout_marginTop="40dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+            <CheckBox
+                android:id="@+id/interval_check_box"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/interval_divider"
+                app:layout_constraintStart_toStartOf="@+id/guideline17"
+                app:layout_constraintTop_toBottomOf="@+id/view3" />
+
+            <TextView
+                android:id="@+id/interval_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/parameter_interval"
+                app:layout_constraintBottom_toTopOf="@+id/interval_divider"
+                app:layout_constraintStart_toEndOf="@+id/interval_check_box"
+                app:layout_constraintTop_toBottomOf="@+id/view3" />
+
+            <EditText
+                android:id="@+id/interval_edit"
+                style="@style/batch_config_edit"
+                android:inputType="number"
+                app:layout_constraintBottom_toTopOf="@+id/interval_divider"
+                app:layout_constraintEnd_toStartOf="@+id/guideline8"
+                app:layout_constraintTop_toBottomOf="@+id/view3" />
+
+            <View
+                android:id="@+id/interval_divider"
+                style="@style/batch_config_divider"
+                android:layout_marginTop="40dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view3" />
+
+            <CheckBox
+                android:id="@+id/tlm_check_box"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/tlm_divider"
+                app:layout_constraintStart_toStartOf="@+id/guideline17"
+                app:layout_constraintTop_toBottomOf="@+id/interval_divider" />
+
+            <TextView
+                android:id="@+id/tlm_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TLM: "
+                app:layout_constraintBottom_toTopOf="@+id/tlm_divider"
+                app:layout_constraintStart_toEndOf="@+id/tlm_check_box"
+                app:layout_constraintTop_toBottomOf="@+id/interval_divider" />
+
+            <com.glowbird.gbeacon.ui.view.SwitchButton
+                android:id="@+id/tlm_button"
+                android:layout_width="54dp"
+                android:layout_height="30dp"
+                app:layout_constraintBottom_toTopOf="@+id/tlm_divider"
+                app:layout_constraintEnd_toStartOf="@+id/guideline8"
+                app:layout_constraintTop_toBottomOf="@+id/interval_divider" />
+
+            <View
+                android:id="@+id/tlm_divider"
+                style="@style/batch_config_divider"
+                android:layout_marginTop="40dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/interval_divider" />
+
+            <CheckBox
+                android:id="@+id/long_range_check_box"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+
+                app:layout_constraintBottom_toTopOf="@+id/long_range_divider"
+                app:layout_constraintStart_toStartOf="@+id/guideline17"
+                app:layout_constraintTop_toBottomOf="@+id/tlm_divider" />
+
+            <TextView
+                android:id="@+id/long_range_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Longrange: "
+                app:layout_constraintBottom_toTopOf="@+id/long_range_divider"
+                app:layout_constraintStart_toEndOf="@+id/long_range_check_box"
+                app:layout_constraintTop_toBottomOf="@+id/tlm_divider"
+                app:layout_constraintVertical_bias="0.476" />
+
+            <com.glowbird.gbeacon.ui.view.SwitchButton
+                android:id="@+id/long_range_button"
+                android:layout_width="54dp"
+                android:layout_height="30dp"
+                app:layout_constraintBottom_toTopOf="@+id/long_range_divider"
+                app:layout_constraintEnd_toStartOf="@+id/guideline8"
+                app:layout_constraintTop_toBottomOf="@+id/tlm_divider" />
+
+            <View
+                android:id="@+id/long_range_divider"
+                style="@style/batch_config_divider"
+                android:layout_marginTop="40dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tlm_divider" />
+
+            <CheckBox
+                android:id="@+id/pin_check_box"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/view5"
+                app:layout_constraintStart_toStartOf="@+id/guideline17"
+                app:layout_constraintTop_toBottomOf="@+id/long_range_divider" />
+
+            <TextView
+                android:id="@+id/pin_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pin"
+                app:layout_constraintBottom_toTopOf="@+id/view5"
+                app:layout_constraintStart_toEndOf="@+id/pin_check_box"
+                app:layout_constraintTop_toBottomOf="@+id/long_range_divider" />
+
+            <EditText
+                android:id="@+id/pin_edit"
+                style="@style/batch_config_edit"
+                android:layout_width="100dp"
+                android:inputType="number"
+                android:maxLength="6"
+                app:layout_constraintBottom_toTopOf="@+id/view5"
+                app:layout_constraintEnd_toStartOf="@+id/guideline8"
+                app:layout_constraintTop_toBottomOf="@+id/long_range_divider" />
+
+            <View
+                android:id="@+id/view5"
+                style="@style/batch_config_divider"
+                android:layout_marginTop="40dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/long_range_divider" />
+
+            <CheckBox
+                android:id="@+id/tx_power_check_box"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/view6"
+                app:layout_constraintStart_toStartOf="@+id/guideline17"
+                app:layout_constraintTop_toBottomOf="@+id/view5" />
+
+            <TextView
+                android:id="@+id/tx_power_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TxPower(dB): "
+                app:layout_constraintBottom_toTopOf="@+id/view6"
+                app:layout_constraintStart_toEndOf="@+id/tx_power_check_box"
+                app:layout_constraintTop_toBottomOf="@+id/view5" />
+
+            <Spinner
+                android:id="@+id/tx_power_spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/view6"
+                app:layout_constraintEnd_toStartOf="@+id/guideline8"
+                app:layout_constraintTop_toBottomOf="@+id/view5" />
+
+            <View
+                android:id="@+id/view6"
+                style="@style/batch_config_divider"
+                android:layout_marginTop="40dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view5" />
+
+            <CheckBox
+                android:id="@+id/gsensor_check_box"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/gsensor_divider"
+                app:layout_constraintStart_toStartOf="@+id/guideline17"
+                app:layout_constraintTop_toBottomOf="@+id/view6" />
+
+            <TextView
+                android:id="@+id/gsensor_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gsensor(ms): "
+                app:layout_constraintBottom_toTopOf="@+id/gsensor_divider"
+                app:layout_constraintStart_toEndOf="@+id/tx_power_check_box"
+                app:layout_constraintTop_toBottomOf="@+id/view6" />
+
+            <LinearLayout
+                android:id="@+id/gsensor_layout"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@+id/gsensor_divider"
+                app:layout_constraintEnd_toStartOf="@+id/guideline8"
+                app:layout_constraintStart_toEndOf="@+id/gsensor_label"
+                app:layout_constraintTop_toBottomOf="@+id/view6">
+
+                <EditText
+                    android:id="@+id/gsensor_advin_edit"
+                    style="@style/batch_config_edit"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:inputType="number"
+                    android:maxLength="6" />
+
+                <EditText
+                    android:id="@+id/gsensor_duration_edit"
+                    style="@style/batch_config_edit"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:inputType="number" />
+
+                <EditText
+                    android:id="@+id/gsensor_sensitivity_edit"
+                    style="@style/batch_config_edit"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:inputType="number"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/gsensor_divider"
+                style="@style/batch_config_divider"
+                android:layout_marginTop="40dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view6" />
+
+            <CheckBox
+                android:id="@+id/key_check_box"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/key_divider"
+                app:layout_constraintStart_toStartOf="@+id/guideline17"
+                app:layout_constraintTop_toBottomOf="@+id/gsensor_divider" />
+
+            <TextView
+                android:id="@+id/key_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Key(ms): "
+                app:layout_constraintBottom_toTopOf="@+id/key_divider"
+                app:layout_constraintStart_toEndOf="@+id/tx_power_check_box"
+                app:layout_constraintTop_toBottomOf="@+id/gsensor_divider" />
+
+            <EditText
+                android:id="@+id/key_advin"
+                style="@style/batch_config_edit"
+                android:layout_marginEnd="10dp"
+                android:inputType="number"
+                app:layout_constraintBottom_toTopOf="@+id/key_divider"
+                app:layout_constraintEnd_toStartOf="@+id/key_duration"
+                app:layout_constraintTop_toBottomOf="@+id/gsensor_divider" />
+
+            <EditText
+                android:id="@+id/key_duration"
+                style="@style/batch_config_edit"
+                android:inputType="number"
+                app:layout_constraintBottom_toTopOf="@+id/key_divider"
+                app:layout_constraintEnd_toStartOf="@+id/guideline8"
+                app:layout_constraintTop_toBottomOf="@+id/gsensor_divider" />
+
+            <View
+                android:id="@+id/key_divider"
+                style="@style/batch_config_divider"
+                android:layout_marginTop="40dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/gsensor_divider" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/tlm_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:constraint_referenced_ids="tlm_label,tlm_button,tlm_divider, tlm_check_box" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/long_rand_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:constraint_referenced_ids="long_range_label, long_range_button,long_range_divider, long_range_check_box" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/gsensor_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:constraint_referenced_ids="gsensor_label,gsensor_layout,gsensor_divider, gsensor_check_box" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/key_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:constraint_referenced_ids="key_label,key_advin, key_duration,key_divider, key_check_box" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintGuide_percent="0.95" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.05" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

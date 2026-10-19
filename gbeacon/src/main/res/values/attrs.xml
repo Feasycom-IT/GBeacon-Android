@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 自定义属性集合用于 LabelEditView -->
+    <declare-styleable name="LabelEditView">
+        <!-- 标签文本属性，用于设置标签显示的文本内容 -->
+        <attr name="labelText" format="string" />
+    </declare-styleable>
+</resources>
