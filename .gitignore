@@ -31,3 +31,6 @@ signing.properties
 *.hprof
 .DS_Store
 Thumbs.db
+
+# 对外发布的安装包（本目录允许提交 APK）
+!apk/*.apk

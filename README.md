@@ -11,6 +11,16 @@ gbeacon/libs/GBeaconLib-release.aar
 
 ---
 
+## 下载安装包 / Download APK
+
+| 版本 | 文件 | 大小 | SHA-256 |
+|---|---|---|---|
+| v1.0.2.5 | [apk/GBeacon-v1.0.2.5.apk](apk/GBeacon-v1.0.2.5.apk) | 20.33 MB | `3003293AD8FBF16208E4A76C0806DE3F927E55EB37D03BE902433153694CD413` |
+
+- 安装包由**官方签名证书**（CN=GlowBird）签名，非调试包，可直接安装/覆盖升级；
+- 适用系统：**Android 10 及以上**（minSdk 29）；
+- 说明：本仓库源码版本为 **1.0.2.6**，该 APK 为已发布的 **1.0.2.5** 正式包；
+  如需 1.0.2.6 的包，请用 Android Studio 自行编译（见下方“编译 / Build”）。
 ## 1. 引入 SDK / Add the SDK
 
 1. 把 `GBeaconLib-release.aar` 放到 `gbeacon/libs/`（仓库已内置一份）
