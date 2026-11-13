@@ -46,7 +46,7 @@ import com.hjq.permissions.XXPermissions
 import com.hjq.permissions.permission.PermissionLists
 import com.hjq.permissions.permission.base.IPermission
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.MainScope
+import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
 
 class BeaconFragment : BaseFragment<FragmentBeaconBinding>(), FscBleCallback {
@@ -78,7 +78,8 @@ class BeaconFragment : BaseFragment<FragmentBeaconBinding>(), FscBleCallback {
     override fun initView() {
         val storedHash = requireActivity().getStr("hash", "")
         Log.e("TAG", "BeaconFragment storeHash => $storedHash")
-        MainScope().launch(Dispatchers.IO) {
+        // 用 viewLifecycleOwner 的 scope：页面销毁时自动取消，避免每次进页面泄漏一个 scope
+        viewLifecycleOwner.lifecycleScope.launch(Dispatchers.IO) {
             BeaconDataManager.fetchAndStoreBeaconData(App.sContext, storedHash, App.mBeaconItemDao)
         }
         // 设置界面元素
@@ -126,6 +127,8 @@ class BeaconFragment : BaseFragment<FragmentBeaconBinding>(), FscBleCallback {
             val appUpdateInfoTask: Task<AppUpdateInfo> = appUpdateManager.appUpdateInfo
 
             appUpdateInfoTask.addOnSuccessListener { appUpdateInfo ->
+                // Play Core 回调是异步的，页面可能已销毁，避免 detach 后弹窗崩溃
+                if (!isAdded) return@addOnSuccessListener
 
                 when (appUpdateInfo.updateAvailability()) {
                     UpdateAvailability.UPDATE_AVAILABLE -> {
@@ -166,15 +169,17 @@ class BeaconFragment : BaseFragment<FragmentBeaconBinding>(), FscBleCallback {
     }
 
     private fun showUpdateDialog() {
-        val builder = androidx.appcompat.app.AlertDialog.Builder(requireContext())
-        builder.setTitle(getString(R.string.version_update))
-        builder.setMessage(getString(R.string.update_message))
-        builder.setPositiveButton(getString(R.string.Update)) { _, _ ->
+        // 异步回调中页面可能已销毁，取不到 context 就直接放弃
+        val ctx = context ?: return
+        val builder = androidx.appcompat.app.AlertDialog.Builder(ctx)
+        builder.setTitle(ctx.getString(R.string.version_update))
+        builder.setMessage(ctx.getString(R.string.update_message))
+        builder.setPositiveButton(ctx.getString(R.string.Update)) { _, _ ->
             // 跳转到应用商店
             val intent = Intent(Intent.ACTION_VIEW, android.net.Uri.parse(PLAY_STORE_URL))
-            startActivity(intent)
+            runCatching { startActivity(intent) }
         }
-        builder.setNegativeButton(getString(R.string.talk_later)) { dialog, _ ->
+        builder.setNegativeButton(ctx.getString(R.string.talk_later)) { dialog, _ ->
             // 用户选择稍后再说
             dialog.dismiss()
         }
@@ -345,14 +350,16 @@ class BeaconFragment : BaseFragment<FragmentBeaconBinding>(), FscBleCallback {
             return
         }
 
-        requireActivity().runOnUiThread {
+        // 回调来自 SDK 线程池，页面可能已 detach，用 activity? 避免 requireActivity() 抛异常
+        val hostActivity = activity ?: return
+        hostActivity.runOnUiThread {
             val beacon = Beacon(device, 0)
             val index = beaconList.indexOf(beacon)
 
             if (index == -1) {
                 // 新增 Beacon
                 beaconList.add(beacon)
-                deviceAdapter.notifyItemChanged(beaconList.size)
+                deviceAdapter.notifyItemInserted(beaconList.size - 1)
             } else {
                 // 更新已存在的 Beacon
                 val existingBeacon = beaconList[index]

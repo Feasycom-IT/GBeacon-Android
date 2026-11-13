@@ -102,7 +102,9 @@ class ForumFragment : BaseFragment<FragmentForumBinding>() {
         binding?.webView?.apply {
             stopLoading()
             webChromeClient = null
-          //  webViewClient = null
+            loadUrl("about:blank")
+            (parent as? ViewGroup)?.removeView(this)
+            destroy()
         }
         super.onDestroyView()
     }

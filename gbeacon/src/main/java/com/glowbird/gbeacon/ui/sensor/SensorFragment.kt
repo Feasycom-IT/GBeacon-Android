@@ -38,7 +38,8 @@ class SensorFragment : BaseFragment<FragmentDeviceBinding>(), FscBleCallback {
     // 存储检测到的
     private val mDevices = mutableListOf<BluetoothDeviceWrapper>()
 
-    private lateinit var mFilterSensorName: String
+    // 用默认值而不是 lateinit：扫描回调可能早于 onResume 到达，lateinit 会抛 UninitializedPropertyAccessException
+    private var mFilterSensorName: String = ""
     private var mFilterSensorRssi: Int = -100
 
     private val mDeviceAdapter: SensorAdapter by lazy {
@@ -154,11 +155,13 @@ class SensorFragment : BaseFragment<FragmentDeviceBinding>(), FscBleCallback {
                 if (device.name == null) return
                 if (!device.name.uppercase().contains(mFilterSensorName.uppercase())) return
             }
-            requireActivity().runOnUiThread {
+            // 回调来自 SDK 线程池，页面可能已 detach
+            val hostActivity = activity ?: return
+            hostActivity.runOnUiThread {
                 val index = mDevices.indexOf(device)
                 if (index == -1) {
                     mDevices.add(device)
-                    mDeviceAdapter.notifyItemChanged(mDevices.size)
+                    mDeviceAdapter.notifyItemInserted(mDevices.size - 1)
                 } else {
                     mDevices[index] = device
                     mDeviceAdapter.notifyItemChanged(index, "")

@@ -100,8 +100,10 @@ class StoreFragment : BaseFragment<FragmentStoreBinding>() {
         // 安全销毁 WebView，防止内存泄漏 & 空指针
         binding?.webView?.apply {
             stopLoading()
-        //    webViewClient = null
             webChromeClient = null
+            loadUrl("about:blank")
+            (parent as? ViewGroup)?.removeView(this)
+            destroy()
         }
         super.onDestroyView()
     }
